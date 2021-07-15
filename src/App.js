@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  let [score, setScore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <h1 className="title">Hey this is my Counter application </h1>
+      <div className="container">
+        <h3 className="section-title"> The value of score is {score}</h3>
+        <button
+          className="btn"
+          onClick={() => (score < 25 ? setScore(score + 1) : "")}
         >
-          Learn React
-        </a>
-      </header>
+          Increment
+        </button>
+        <button
+          className="btn"
+          onClick={() => (score > 0 ? setScore(score - 1) : "")}
+        >
+          Decrement
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            setScore(0);
+          }}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
